@@ -59,9 +59,14 @@ function generate(config) {
         { original: 'tsm.name', replacement: args.name },
         { original: 'tsm.author.name', replacement: args.author.name },
         { original: 'tsm.author.email', replacement: args.author.email },
-        { original: 'tsm.author.url', replacement: args.author.url },
+        { original: 'tsm.author.url', replacement: args.author.url }
     ];
-    shell.exec('echo Copy the following lines to initialize git directory"');
+    for (var _i = 0, replacements_1 = replacements; _i < replacements_1.length; _i++) {
+        var rep = replacements_1[_i];
+        console.log(rep);
+        shell.exec("sed -i \"s|" + rep.original + "|" + rep.replacement + "|g\" " + args.destination + "/*.*");
+    }
+    shell.exec('echo Copy the follwing lines to initialize git directory"');
     shell.exec('echo');
     shell.exec("echo \"cd " + args.destination + "\"");
     shell.exec('echo "git init"');
@@ -69,10 +74,5 @@ function generate(config) {
     shell.exec('echo "git commit -am init"');
     shell.exec("echo \"git remote add origin https://github.com/" + args.repository + "/" + args.name + ".git\"");
     shell.exec("echo \"git push -u origin master\"");
-    for (var _i = 0, replacements_1 = replacements; _i < replacements_1.length; _i++) {
-        var rep = replacements_1[_i];
-        console.log(rep);
-        shell.exec("sed -i 's/" + rep.original + "/" + rep.replacement + "/g' " + args.destination + "/*.*");
-    }
 }
 exports.generate = generate;
