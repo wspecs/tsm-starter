@@ -6,7 +6,7 @@ describe('word parser', function () {
     beforeEach(function () {
     });
     it('initializes', function () {
-        chai_1.expect(true).to.equal(true);
+        chai_1.expect(lib.DEFAULT_CONFIG.author.url).to.equal('');
     });
     it('validates config', function () {
         var config = {

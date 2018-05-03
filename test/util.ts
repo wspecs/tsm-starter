@@ -6,7 +6,7 @@ describe('word parser', () => {
   });
 
   it('initializes', () => {
-    expect(lib.DEFAULT_CONFIG).to.equal('');
+    expect(lib.DEFAULT_CONFIG.author.url).to.equal('');
   });
 
   it('validates config', () => {

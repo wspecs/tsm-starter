@@ -67,7 +67,9 @@ export function generate(config: TsmConfig) {
     {original: 'tsm.author.url', replacement: args.author.url},
   ];
 
+  shell.exec('echo Copy the following lines to initialize git directory"');
   shell.exec('echo');
+  shell.exec(`echo "cd ${args.destination}"`);
   shell.exec('echo "git init"');
   shell.exec('echo "git add --all"');
   shell.exec('echo "git commit -am init"');

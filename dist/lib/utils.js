@@ -61,6 +61,14 @@ function generate(config) {
         { original: 'tsm.author.email', replacement: args.author.email },
         { original: 'tsm.author.url', replacement: args.author.url },
     ];
+    shell.exec('echo Copy the following lines to initialize git directory"');
+    shell.exec('echo');
+    shell.exec("echo \"cd " + args.destination + "\"");
+    shell.exec('echo "git init"');
+    shell.exec('echo "git add --all"');
+    shell.exec('echo "git commit -am init"');
+    shell.exec("echo \"git remote add origin https://github.com/" + args.repository + "/" + args.name + ".git\"");
+    shell.exec("echo \"git push -u origin master\"");
     for (var _i = 0, replacements_1 = replacements; _i < replacements_1.length; _i++) {
         var rep = replacements_1[_i];
         console.log(rep);

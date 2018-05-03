@@ -1,19 +1,19 @@
-# guitarics-verse-parser
+# tsm-starter
 
-![npm](https://img.shields.io/npm/v/guitarics-verse-parser.svg) ![license](https://img.shields.io/npm/l/guitarics-verse-parser.svg) ![github-issues](https://img.shields.io/github/issues/wspecs/guitarics-verse-parser.svg)
+![npm](https://img.shields.io/npm/v/tsm-starter.svg) ![license](https://img.shields.io/npm/l/tsm-starter.svg) ![github-issues](https://img.shields.io/github/issues/wspecs/tsm-starter.svg)
 
 
 
-![nodei.co](https://nodei.co/npm/guitarics-verse-parser.png?downloads=true&downloadRank=true&stars=true)
+![nodei.co](https://nodei.co/npm/tsm-starter.png?downloads=true&downloadRank=true&stars=true)
 
-![travis-status](https://img.shields.io/travis/wspecs/guitarics-verse-parser.svg)
-![stars](https://img.shields.io/github/stars/wspecs/guitarics-verse-parser.svg)
-![forks](https://img.shields.io/github/forks/wspecs/guitarics-verse-parser.svg)
+![travis-status](https://img.shields.io/travis/wspecs/tsm-starter.svg)
+![stars](https://img.shields.io/github/stars/wspecs/tsm-starter.svg)
+![forks](https://img.shields.io/github/forks/wspecs/tsm-starter.svg)
 
-![forks](https://img.shields.io/github/forks/wspecs/guitarics-verse-parser.svg)
+![forks](https://img.shields.io/github/forks/wspecs/tsm-starter.svg)
 
-![](https://david-dm.org/wspecs/guitarics-verse-parser/status.svg)
-![](https://david-dm.org/wspecs/guitarics-verse-parser/dev-status.svg)
+![](https://david-dm.org/wspecs/tsm-starter/status.svg)
+![](https://david-dm.org/wspecs/tsm-starter/dev-status.svg)
 
 ## Features
 
@@ -22,25 +22,35 @@
 ## Usage
 
 ```js
-const parser = require('guitarics verse parse');
+// cat ~/.tsm-starter.json
+// {
+//   "author": {
+//     "name": "Author Name",
+//     "email": "author@email.com",
+//     "url": "author.url.co"
+//   },
+//   "repository": "wspecs"
+// }
 
-const text = `
-C       Dm     G7     C
-Here goes the best Chords.
-`;
+const starter = require('tsm-starer');
+starter.generate({
+  name: 'new-module',
+  config: '~/.tsm-starter.json',
+  destination: '~/dest'
+});
 
-parser = new parser.VerseParser(text);
-parser.flatten();
-console.log(parser.getText());
-// B       Dbm     Gb7     B
-// Here goes the best Chords.
+// Or as binary
+tsm-starer new-module --config=~/.tsm-starter.json destination=~/dest
 
 ```
 
 ## Install
 
-`npm install --save guitarics-verse-parser`
+`npm install --save tsm-starter`
 
+Or as binary
+
+``npm install --g tsm-starter`
 
 ## Scripts
 
@@ -51,10 +61,12 @@ console.log(parser.getText());
 
 Package | Version | Dev
 --- |:---:|:---:
+[minimist](https://www.npmjs.com/package/minimist) | ^1.2.0 | ✖
+[shelljs](https://www.npmjs.com/package/shelljs) | ^0.8.1 | ✖
 [@types/chai](https://www.npmjs.com/package/@types/chai) | ^4.1.3 | ✔
 [@types/mocha](https://www.npmjs.com/package/@types/mocha) | ^5.2.0 | ✔
+[@types/node](https://www.npmjs.com/package/@types/node) | ^10.0.2 | ✔
 [chai](https://www.npmjs.com/package/chai) | ^4.1.2 | ✔
-[guitarics-chordify](https://www.npmjs.com/package/guitarics-chordify) | ^0.2.1 | ✔
 [mocha](https://www.npmjs.com/package/mocha) | ^5.1.1 | ✔
 
 
