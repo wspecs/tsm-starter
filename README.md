@@ -61,6 +61,7 @@ Or as binary
 
 Package | Version | Dev
 --- |:---:|:---:
+[commander](https://www.npmjs.com/package/commander) | ^2.15.1 | ✖
 [minimist](https://www.npmjs.com/package/minimist) | ^1.2.0 | ✖
 [shelljs](https://www.npmjs.com/package/shelljs) | ^0.8.1 | ✖
 [@types/chai](https://www.npmjs.com/package/@types/chai) | ^4.1.3 | ✔
