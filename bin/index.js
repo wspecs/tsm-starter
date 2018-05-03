@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const generator = require('../dist/index');
 const program = require('commander');
  
