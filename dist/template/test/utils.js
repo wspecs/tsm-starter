@@ -7,6 +7,6 @@ describe('word parser', function () {
         // Set up before running tests.
     });
     it('initializes', function () {
-        chai_1.expect(lib.appName).to.equal('generated-tsm.name');
+        chai_1.expect(lib.appName).to.equal('tsm.name');
     });
 });

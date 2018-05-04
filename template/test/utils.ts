@@ -7,6 +7,6 @@ describe('word parser', () => {
   });
 
   it('initializes', () => {
-    expect(lib.appName).to.equal('generated-tsm.name');
+    expect(lib.appName).to.equal('tsm.name');
   });
 });
