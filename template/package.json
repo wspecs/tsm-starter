@@ -17,7 +17,7 @@
   "author": {
     "name": "tsm.author.name",
     "email": "tsm.author.email",
-    "url": "author.url"
+    "url": "tsm.author.url"
   },
   "license": "MIT",
   "devDependencies": {
