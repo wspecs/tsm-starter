@@ -10,6 +10,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = require("fs");
 var path_1 = require("path");
+var replace = require('replace');
 var shell = require('shelljs');
 var minimist = require('minimist');
 var ARGV = minimist(process.argv.slice(2));
@@ -63,16 +64,14 @@ function generate(config) {
     ];
     for (var _i = 0, replacements_1 = replacements; _i < replacements_1.length; _i++) {
         var rep = replacements_1[_i];
-        console.log(rep);
-        shell.exec("sed -i \"s|" + rep.original + "|" + rep.replacement + "|g\" " + args.destination + "/*.*");
+        replace({
+            regex: rep.original,
+            replacement: rep.replacement,
+            paths: ["" + args.destination],
+            recursive: true,
+        });
     }
-    shell.exec('echo Copy the follwing lines to initialize git directory"');
-    shell.exec('echo');
-    shell.exec("echo \"cd " + args.destination + "\"");
-    shell.exec('echo "git init"');
-    shell.exec('echo "git add --all"');
-    shell.exec('echo "git commit -am init"');
-    shell.exec("echo \"git remote add origin https://github.com/" + args.repository + "/" + args.name + ".git\"");
-    shell.exec("echo \"git push -u origin master\"");
+    shell.exec("cd " + args.destination);
+    shell.exec('npm install');
 }
 exports.generate = generate;

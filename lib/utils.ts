@@ -1,5 +1,6 @@
 import {existsSync, readFileSync, exists} from 'fs';
 import {join} from 'path';
+const replace = require('replace');
 const shell = require('shelljs'); 
 const minimist = require('minimist')
 
@@ -68,16 +69,14 @@ export function generate(config: TsmConfig) {
   ];
 
   for (const rep of replacements) {
-    console.log(rep);
-    shell.exec(`sed -i "s|${rep.original}|${rep.replacement}|g" ${args.destination}/*.*`);
+    replace({
+      regex: rep.original,
+      replacement: rep.replacement,
+      paths: [`${args.destination}`],
+      recursive: true,
+    });
   }
 
-  shell.exec('echo Copy the follwing lines to initialize git directory"');
-  shell.exec('echo');
-  shell.exec(`echo "cd ${args.destination}"`);
-  shell.exec('echo "git init"');
-  shell.exec('echo "git add --all"');
-  shell.exec('echo "git commit -am init"');
-  shell.exec(`echo "git remote add origin https://github.com/${args.repository}/${args.name}.git"`);
-  shell.exec(`echo "git push -u origin master"`);
+  shell.exec(`cd ${args.destination}`);
+  shell.exec('npm install');
 }

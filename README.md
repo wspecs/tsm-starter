@@ -63,6 +63,7 @@ Package | Version | Dev
 --- |:---:|:---:
 [commander](https://www.npmjs.com/package/commander) | ^2.15.1 | ✖
 [minimist](https://www.npmjs.com/package/minimist) | ^1.2.0 | ✖
+[replace](https://www.npmjs.com/package/replace) | ^1.0.0 | ✖
 [shelljs](https://www.npmjs.com/package/shelljs) | ^0.8.2 | ✖
 [@types/chai](https://www.npmjs.com/package/@types/chai) | ^4.1.3 | ✔
 [@types/mocha](https://www.npmjs.com/package/@types/mocha) | ^5.2.0 | ✔
