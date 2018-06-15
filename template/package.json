@@ -13,9 +13,7 @@
     "test": "mocha ./dist/test/*.js"
   },
   "keywords": [
-    "tsm",
-    "starter",
-    "tsm-starter"
+    "tsm.name"
   ],
   "author": {
     "name": "tsm.author.name",
