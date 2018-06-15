@@ -1,6 +1,6 @@
 # tsm-starter
 
-
+Utility to generate Typescript nodejs modules.
 
 ![npm](https://img.shields.io/npm/v/tsm-starter.svg) ![license](https://img.shields.io/npm/l/tsm-starter.svg) ![github-issues](https://img.shields.io/github/issues/wspecs/tsm-starter.svg)
 
