@@ -1,8 +1,8 @@
 # tsm-starter
 
+
+
 ![npm](https://img.shields.io/npm/v/tsm-starter.svg) ![license](https://img.shields.io/npm/l/tsm-starter.svg) ![github-issues](https://img.shields.io/github/issues/wspecs/tsm-starter.svg)
-
-
 
 ![nodei.co](https://nodei.co/npm/tsm-starter.png?downloads=true&downloadRank=true&stars=true)
 
@@ -78,8 +78,8 @@ Contributions welcome; Please submit all pull requests against the master branch
 
 ## Author
 
-Wendly Saintil <wendlysaintil@gmail.com> https://twitter.com/wendlysaintil
+[Wendly Saintil](https://twitter.com/wendlysaintil)
 
 ## License
 
- - **MIT** : http://opensource.org/licenses/MIT
+[MIT](LICENSE)
