@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "tsm.repository/tsm.name",
+  "bin": {
+    "tsm.name": "bin/index.js"
+  },
   "scripts": {
     "build": "rm -rf dist && tsc",
     "test": "mocha ./dist/test/*.js"
@@ -21,10 +24,16 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^10.0.2",
     "@types/chai": "^4.1.3",
     "@types/mocha": "^5.2.0",
+    "@types/node": "^10.0.2",
     "chai": "^4.1.2",
     "mocha": "^5.1.1"
+  },
+  "dependencies": {
+    "commander": "^2.15.1",
+    "minimist": "^1.2.0",
+    "replace": "^1.0.0",
+    "shelljs": "^0.8.2"
   }
 }
