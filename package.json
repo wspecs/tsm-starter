@@ -9,7 +9,8 @@
     "tsm-starter": "bin/index.js"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc && npm run readme",
+    "readme": "node ./node_modules/.bin/node-readme",
     "test": "mocha ./dist/test/*.js"
   },
   "keywords": [
@@ -28,12 +29,14 @@
     "@types/mocha": "^5.2.0",
     "@types/node": "^10.0.2",
     "chai": "^4.1.2",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "node-readme": "^0.1.9"
   },
   "dependencies": {
-    "commander": "^2.15.1",
-    "minimist": "^1.2.0",
-    "replace": "^1.0.0",
-    "shelljs": "^0.8.2"
+    "commander": "^2.19.0",
+    "dot-object": "^1.7.1",
+    "great-logs": "0.0.4",
+    "prompts": "^2.0.1",
+    "shelljs": "^0.8.3"
   }
 }

@@ -1,3 +1,4 @@
+<!-- prettier-ignore-start -->
 # tsm-starter
 
 Utility to generate Typescript nodejs modules.
@@ -17,31 +18,19 @@ Utility to generate Typescript nodejs modules.
 
 ## Features
 
-- Parse text with chords
+- Utility to generate Typescript nodejs modules.
 
 ## Usage
 
-```js
-// cat ~/.tsm-starter.json
-// {
-//   "author": {
-//     "name": "Author Name",
-//     "email": "author@email.com",
-//     "url": "author.url.co"
-//   },
-//   "repository": "wspecs"
-// }
-
-const starter = require('tsm-starer');
-starter.generate({
-  name: 'new-module',
-  config: '~/.tsm-starter.json',
-  destination: '~/dest'
-});
-
-// Or as binary
-tsm-starer new-module --config=~/.tsm-starter.json destination=~/dest
-
+```bash
+tsm-starter
+> ✔ Name of the package … name-of-the-package
+> ✔ Description of the package … Descriptionm for the package
+> ✔ License type … MIT
+> ✔ What's your name? … Author's Name
+> ✔ What's your email? … Author's Email
+> ✔ What's your website url? … Author's Url
+> ✔ What's your GitHub repo? … Author's GitHub Repo
 ```
 
 ## Install
@@ -54,22 +43,25 @@ Or as binary
 
 ## Scripts
 
- - **npm run build** : `rm -rf dist && tsc`
+ - **npm run build** : `rm -rf dist && tsc && npm run readme`
+ - **npm run readme** : `node ./node_modules/.bin/node-readme`
  - **npm run test** : `mocha ./dist/test/*.js`
 
 ## Dependencies
 
 Package | Version | Dev
 --- |:---:|:---:
-[commander](https://www.npmjs.com/package/commander) | ^2.15.1 | ✖
-[minimist](https://www.npmjs.com/package/minimist) | ^1.2.0 | ✖
-[replace](https://www.npmjs.com/package/replace) | ^1.0.0 | ✖
-[shelljs](https://www.npmjs.com/package/shelljs) | ^0.8.2 | ✖
+[commander](https://www.npmjs.com/package/commander) | ^2.19.0 | ✖
+[dot-object](https://www.npmjs.com/package/dot-object) | ^1.7.1 | ✖
+[great-logs](https://www.npmjs.com/package/great-logs) | 0.0.4 | ✖
+[prompts](https://www.npmjs.com/package/prompts) | ^2.0.1 | ✖
+[shelljs](https://www.npmjs.com/package/shelljs) | ^0.8.3 | ✖
 [@types/chai](https://www.npmjs.com/package/@types/chai) | ^4.1.3 | ✔
 [@types/mocha](https://www.npmjs.com/package/@types/mocha) | ^5.2.0 | ✔
 [@types/node](https://www.npmjs.com/package/@types/node) | ^10.0.2 | ✔
 [chai](https://www.npmjs.com/package/chai) | ^4.1.2 | ✔
 [mocha](https://www.npmjs.com/package/mocha) | ^5.1.1 | ✔
+[node-readme](https://www.npmjs.com/package/node-readme) | ^0.1.9 | ✔
 
 
 ## Contributing
@@ -83,3 +75,4 @@ Please check the [Contributing Guidelines](contributing.md) for more details. Th
 ## License
 
 [MIT](LICENSE)
+<!-- prettier-ignore-end -->

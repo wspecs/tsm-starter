@@ -1,2 +1,1 @@
-import { generate } from './lib/utils';
-export { generate };
+export * from './lib/utils';

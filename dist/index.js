@@ -1,4 +1,6 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = require("./lib/utils");
-exports.generate = utils_1.generate;
+__export(require("./lib/utils"));

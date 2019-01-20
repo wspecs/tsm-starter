@@ -1,20 +1,12 @@
 import * as lib from '../lib/utils';
 import { expect } from 'chai';
 
-describe('word parser', () => {
+describe('util file', () => {
   beforeEach(() => {
+    // Add before each test
   });
 
-  it('initializes', () => {
-    expect(lib.DEFAULT_CONFIG.author.url).to.equal('');
-  });
-
-  it('validates config', () => {
-    const config = {
-      destination: '/dest',
-      name: 'name',
-      repository: 'wspecs'
-    } as lib.TsmConfig;
-    expect(lib.validateConfig(config)).to.equal(true);
+  it('can add two numbers', () => {
+    expect(lib.add(5, 2)).to.equal(7);
   });
 });

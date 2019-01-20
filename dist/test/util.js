@@ -2,18 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var lib = require("../lib/utils");
 var chai_1 = require("chai");
-describe('word parser', function () {
+describe('util file', function () {
     beforeEach(function () {
+        // Add before each test
     });
-    it('initializes', function () {
-        chai_1.expect(lib.DEFAULT_CONFIG.author.url).to.equal('');
-    });
-    it('validates config', function () {
-        var config = {
-            destination: '/dest',
-            name: 'name',
-            repository: 'wspecs'
-        };
-        chai_1.expect(lib.validateConfig(config)).to.equal(true);
+    it('can add two numbers', function () {
+        chai_1.expect(lib.add(5, 2)).to.equal(7);
     });
 });
