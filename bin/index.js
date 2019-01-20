@@ -66,27 +66,29 @@ const GENERATE_MODULE_QUESTIONS = [
 program.command('start').action(async () => generateModule());
 
 async function generateModule() {
-  try {
-    fs.readFileSync('package.json');
-    console.error('This folder already has a package.json');
-    process.exit(-1);
-  } catch {
-    const response = await prompts(GENERATE_MODULE_QUESTIONS);
-    copyFiles();
-    const packageInfo = { ...PACKAGE_INFO, ...dot.object(response) };
-    delete packageInfo.dependencies['dot-object'];
-    delete packageInfo.dependencies['shelljs'];
-    const packageInfoText = JSON.stringify(packageInfo, null, 2);
-    fs.writeFileSync('package.json', packageInfoText, 'utf8');
-  }
+  const response = await prompts(GENERATE_MODULE_QUESTIONS);
+  const folderName = response.name;
+  copyFiles(folderName);
+  const packageInfo = { ...PACKAGE_INFO, ...dot.object(response) };
+  delete packageInfo.dependencies['dot-object'];
+  delete packageInfo.dependencies['shelljs'];
+  const packageInfoText = JSON.stringify(packageInfo, null, 2);
+  fs.writeFileSync(`${folderName}/package.json`, packageInfoText, 'utf8');
+  log.info('run the following command to continue');
+  console.log('******************************');
+  console.log(`cd ${folderName}`);
+  console.log('npm i');
+  console.log('npm run readme');
+  console.log('******************************');
 }
 
-function copyFiles() {
+function copyFiles(folderName) {
   const files = fs.readdirSync(APP_FOLDER);
+  shell.exec(`mkdir ./${folderName}`);
   for (const file of files) {
     if (EXCLUDED_FOLDERS.has(file)) {
     } else {
-      shell.exec(`cp -r ${APP_FOLDER}/${file} ./`);
+      shell.exec(`cp -r ${APP_FOLDER}/${file} ./${folderName}/`);
       log.info('copying: %s', file);
     }
   }
