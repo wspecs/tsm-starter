@@ -72,7 +72,13 @@ async function generateModule() {
   const packageInfo = { ...PACKAGE_INFO, ...dot.object(response) };
   delete packageInfo.dependencies['dot-object'];
   delete packageInfo.dependencies['shelljs'];
-  const packageInfoText = JSON.stringify(packageInfo, null, 2);
+  for (const key of Object.keys(packageInfo)) {
+    if (key.startsWith('_')) delete package[key];
+  }
+  const packageInfoText = JSON.stringify(packageInfo, null, 2).replace(
+    /tsm-starter/g,
+    response.name
+  );
   fs.writeFileSync(`${folderName}/package.json`, packageInfoText, 'utf8');
   log.info('run the following command to continue');
   console.log('******************************');
