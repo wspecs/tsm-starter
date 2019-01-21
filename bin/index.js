@@ -6,6 +6,17 @@ const prompts = require('prompts');
 const shell = require('shelljs');
 const dot = require('dot-object');
 const log = require('great-logs');
+const os = require('os');
+
+// Default answers for the quesionts.
+let defaultAnswers = { author: {} };
+try {
+  defaultAnswers = JSON.parse(
+    fs.readFileSync(`${os.homedir()}/.tsm-starter.json`)
+  );
+} catch {
+  // No default config file
+}
 
 const APP_FOLDER = `${__dirname}/..`;
 const EXCLUDED_FOLDERS = new Set([
@@ -13,9 +24,12 @@ const EXCLUDED_FOLDERS = new Set([
   'node_modules',
   'dist',
   'template',
-  'package-lock.json'
+  'package-lock.json',
+  'bin'
 ]);
-const PACKAGE_INFO = JSON.parse(fs.readFileSync(`${APP_FOLDER}/package.json`));
+const PACKAGE_INFO = JSON.parse(
+  fs.readFileSync(`${APP_FOLDER}/package.json`, 'utf8')
+);
 
 const GENERATE_MODULE_QUESTIONS = [
   {
@@ -41,25 +55,25 @@ const GENERATE_MODULE_QUESTIONS = [
     type: 'text',
     name: 'author.name',
     message: "What's your name?",
-    initial: ''
+    initial: defaultAnswers.author.name || ''
   },
   {
     type: 'text',
     name: 'author.email',
     message: "What's your email?",
-    initial: ''
+    initial: defaultAnswers.author.email || ''
   },
   {
     type: 'text',
     name: 'author.url',
     message: "What's your website url?",
-    initial: ''
+    initial: defaultAnswers.author.url || ''
   },
   {
     type: 'text',
     name: 'author.git',
     message: "What's your GitHub repo?",
-    initial: ''
+    initial: defaultAnswers.repository
   }
 ];
 
@@ -67,6 +81,10 @@ program.command('start').action(async () => generateModule());
 
 async function generateModule() {
   const response = await prompts(GENERATE_MODULE_QUESTIONS);
+  if (response.name == null || response.description == null) {
+    log.error('Failed to create package');
+    process.exit(-1);
+  }
   const folderName = response.name;
   copyFiles(folderName);
   const packageInfo = {
@@ -102,6 +120,13 @@ function copyFiles(folderName) {
       log.info('copying: %s', file);
     }
   }
+  shell.exec(`mkdir ./${folderName}/bin`);
+  shell.exec(
+    `cp -r ${APP_FOLDER}/template/binary.js ./${folderName}/bin/index.js`
+  );
+  shell.exec(
+    `cp -r ${APP_FOLDER}/template/rm.template.md ./${folderName}/.README.md`
+  );
 }
 
 program.parse(process.argv);
