@@ -1,6 +1,6 @@
 {
   "name": "tsm-starter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility to generate Typescript nodejs modules.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
