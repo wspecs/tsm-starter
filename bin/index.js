@@ -69,7 +69,11 @@ async function generateModule() {
   const response = await prompts(GENERATE_MODULE_QUESTIONS);
   const folderName = response.name;
   copyFiles(folderName);
-  const packageInfo = { ...PACKAGE_INFO, ...dot.object(response) };
+  const packageInfo = {
+    ...PACKAGE_INFO,
+    ...dot.object(response),
+    version: '0.0.1'
+  };
   delete packageInfo.dependencies['dot-object'];
   delete packageInfo.dependencies['shelljs'];
   for (const key of Object.keys(packageInfo)) {
