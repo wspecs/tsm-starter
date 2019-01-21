@@ -77,7 +77,7 @@ async function generateModule() {
   delete packageInfo.dependencies['dot-object'];
   delete packageInfo.dependencies['shelljs'];
   for (const key of Object.keys(packageInfo)) {
-    if (key.startsWith('_')) delete package[key];
+    if (key.startsWith('_')) delete packageInfo[key];
   }
   const packageInfoText = JSON.stringify(packageInfo, null, 2).replace(
     /tsm-starter/g,
